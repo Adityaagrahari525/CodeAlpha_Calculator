@@ -1,0 +1,566 @@
+/* ==========================================================================
+   Design Tokens & CSS Variables
+   ========================================================================== */
+:root {
+  /* Color Palette - Light Mode */
+  --bg-gradient: radial-gradient(circle at 10% 10%, rgba(20, 184, 166, 0.08) 0%, transparent 40%),
+                 radial-gradient(circle at 90% 90%, rgba(15, 118, 110, 0.06) 0%, transparent 45%),
+                 #F4F7F6;
+  --bg-color: #F4F7F6;
+  --card-bg: rgba(255, 255, 255, 0.88);
+  --card-border: rgba(226, 232, 240, 0.85);
+  --card-shadow: 0 24px 48px -12px rgba(15, 23, 42, 0.08),
+                 0 4px 12px -2px rgba(15, 23, 42, 0.03),
+                 0 0 0 1px rgba(255, 255, 255, 0.8) inset;
+
+  --display-bg: rgba(248, 250, 252, 0.85);
+  --display-border: #E2E8F0;
+  --text-main: #17202A;
+  --text-secondary: #64748B;
+
+  /* Number Buttons */
+  --btn-num-bg: #F8FAFC;
+  --btn-num-color: #17202A;
+  --btn-num-border: #E2E8F0;
+  --btn-num-hover: #F1F5F9;
+
+  /* Function Buttons (DEL) */
+  --btn-fn-bg: #F1F5F9;
+  --btn-fn-color: #334155;
+  --btn-fn-border: #E2E8F0;
+  --btn-fn-hover: #E2E8F0;
+
+  /* Operator Buttons (+, -, ×, ÷, %) */
+  --btn-op-bg: #E6FFFB;
+  --btn-op-color: #0F766E;
+  --btn-op-border: #CCFBF1;
+  --btn-op-hover: #D1FAF4;
+
+  /* Equals Button */
+  --btn-eq-bg: #0F766E;
+  --btn-eq-color: #FFFFFF;
+  --btn-eq-border: #0D6962;
+  --btn-eq-hover: #115E59;
+  --btn-eq-active: #0D534D;
+  --btn-eq-shadow: 0 4px 14px 0 rgba(15, 118, 110, 0.35);
+
+  /* Danger / AC Button */
+  --btn-danger-bg: #FEE2E2;
+  --btn-danger-color: #B91C1C;
+  --btn-danger-border: #FECACA;
+  --btn-danger-hover: #FCA5A5;
+
+  /* Focus & Active Highlights */
+  --focus-ring: rgba(15, 118, 110, 0.35);
+  --key-highlight-ring: #0F766E;
+
+  /* Theme toggle & Icon colors */
+  --icon-btn-bg: rgba(255, 255, 255, 0.8);
+  --icon-btn-border: #E2E8F0;
+  --icon-btn-color: #475569;
+  --icon-btn-hover: #F1F5F9;
+
+  /* Typography & Transitions */
+  --font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --transition-speed: 0.16s;
+  --radius-card: 28px;
+  --radius-btn: 16px;
+  --radius-display: 20px;
+}
+
+/* ==========================================================================
+   Dark Mode Theme
+   ========================================================================== */
+[data-theme="dark"] {
+  --bg-gradient: radial-gradient(circle at 15% 15%, rgba(20, 184, 166, 0.12) 0%, transparent 40%),
+                 radial-gradient(circle at 85% 85%, rgba(13, 148, 136, 0.08) 0%, transparent 45%),
+                 #0B111A;
+  --bg-color: #0B111A;
+  --card-bg: rgba(22, 31, 46, 0.85);
+  --card-border: rgba(51, 65, 85, 0.7);
+  --card-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5),
+                 0 4px 16px -2px rgba(0, 0, 0, 0.3),
+                 0 0 0 1px rgba(255, 255, 255, 0.06) inset;
+
+  --display-bg: rgba(15, 23, 42, 0.75);
+  --display-border: rgba(51, 65, 85, 0.6);
+  --text-main: #F8FAFC;
+  --text-secondary: #94A3B8;
+
+  /* Number Buttons */
+  --btn-num-bg: rgba(30, 41, 59, 0.7);
+  --btn-num-color: #F8FAFC;
+  --btn-num-border: rgba(51, 65, 85, 0.5);
+  --btn-num-hover: rgba(51, 65, 85, 0.85);
+
+  /* Function Buttons */
+  --btn-fn-bg: rgba(30, 41, 59, 0.9);
+  --btn-fn-color: #CBD5E1;
+  --btn-fn-border: rgba(51, 65, 85, 0.6);
+  --btn-fn-hover: rgba(51, 65, 85, 1);
+
+  /* Operator Buttons */
+  --btn-op-bg: rgba(19, 78, 74, 0.45);
+  --btn-op-color: #5EEAD4;
+  --btn-op-border: rgba(20, 184, 166, 0.3);
+  --btn-op-hover: rgba(19, 78, 74, 0.7);
+
+  /* Equals Button */
+  --btn-eq-bg: #0D9488;
+  --btn-eq-color: #FFFFFF;
+  --btn-eq-border: #0F766E;
+  --btn-eq-hover: #14B8A6;
+  --btn-eq-active: #0F766E;
+  --btn-eq-shadow: 0 4px 16px 0 rgba(13, 148, 136, 0.4);
+
+  /* Danger / AC Button */
+  --btn-danger-bg: rgba(69, 26, 26, 0.55);
+  --btn-danger-color: #FCA5A5;
+  --btn-danger-border: rgba(127, 29, 29, 0.4);
+  --btn-danger-hover: rgba(90, 30, 38, 0.75);
+
+  /* Focus & Active Highlights */
+  --focus-ring: rgba(45, 212, 191, 0.35);
+  --key-highlight-ring: #2DD4BF;
+
+  /* Theme toggle & Icon colors */
+  --icon-btn-bg: rgba(30, 41, 59, 0.8);
+  --icon-btn-border: #334155;
+  --icon-btn-color: #CBD5E1;
+  --icon-btn-hover: #334155;
+}
+
+/* ==========================================================================
+   Reset & Global Styles
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-family);
+  background: var(--bg-gradient);
+  background-attachment: fixed;
+  color: var(--text-main);
+  line-height: 1.5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px 16px;
+  transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+}
+
+/* ==========================================================================
+   Layout Containers
+   ========================================================================== */
+.app-container {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: auto;
+}
+
+/* ==========================================================================
+   Header & Branding
+   ========================================================================== */
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 8px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #0F766E 0%, #14B8A6 100%);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(15, 118, 110, 0.25);
+  flex-shrink: 0;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-main);
+  line-height: 1.2;
+}
+
+.brand-subtitle {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  letter-spacing: 0.02em;
+}
+
+/* Theme Toggle Button */
+.theme-toggle-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: var(--icon-btn-bg);
+  border: 1px solid var(--icon-btn-border);
+  color: var(--icon-btn-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-speed) ease;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.theme-toggle-btn:hover {
+  background: var(--icon-btn-hover);
+  color: var(--text-main);
+  transform: translateY(-1px);
+}
+
+.theme-toggle-btn:active {
+  transform: scale(0.95);
+}
+
+.theme-toggle-btn:focus-visible {
+  outline: 2px solid var(--key-highlight-ring);
+  outline-offset: 2px;
+}
+
+/* Toggle icon display based on mode */
+.sun-icon {
+  display: none;
+}
+.moon-icon {
+  display: block;
+}
+
+[data-theme="dark"] .sun-icon {
+  display: block;
+}
+[data-theme="dark"] .moon-icon {
+  display: none;
+}
+
+/* ==========================================================================
+   Calculator Card Surface (Glassmorphism)
+   ========================================================================== */
+.calculator-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--card-shadow);
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+/* ==========================================================================
+   Display Section (Expression + Current Value)
+   ========================================================================== */
+.display-container {
+  background: var(--display-bg);
+  border: 1px solid var(--display-border);
+  border-radius: var(--radius-display);
+  padding: 16px 20px;
+  min-height: 104px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: right;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02) inset;
+  transition: background-color var(--transition-speed) ease, border-color var(--transition-speed) ease;
+}
+
+.expression-display {
+  min-height: 22px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  scrollbar-width: none;
+  user-select: all;
+  letter-spacing: 0.03em;
+}
+
+.expression-display::-webkit-scrollbar {
+  display: none;
+}
+
+.result-display {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--text-main);
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  scrollbar-width: none;
+  user-select: all;
+  letter-spacing: -0.02em;
+  transition: font-size 0.15s ease, opacity 0.1s ease;
+}
+
+.result-display::-webkit-scrollbar {
+  display: none;
+}
+
+/* Scaled down classes for large inputs */
+.result-display.text-medium {
+  font-size: 2rem;
+}
+
+.result-display.text-small {
+  font-size: 1.5rem;
+}
+
+.result-display.text-xsmall {
+  font-size: 1.25rem;
+}
+
+/* Error feedback state */
+.result-display.error-state {
+  color: #DC2626;
+  font-size: 1.35rem;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   Keypad Grid & Buttons
+   ========================================================================== */
+.keypad-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.btn {
+  appearance: none;
+  border: 1px solid transparent;
+  outline: none;
+  cursor: pointer;
+  height: 60px;
+  font-family: inherit;
+  font-size: 1.3rem;
+  font-weight: 600;
+  border-radius: var(--radius-btn);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  position: relative;
+  transition: background-color var(--transition-speed) ease,
+              color var(--transition-speed) ease,
+              border-color var(--transition-speed) ease,
+              transform 0.1s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow var(--transition-speed) ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: scale(0.96) translateY(0);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--key-highlight-ring);
+  outline-offset: 2px;
+  z-index: 2;
+}
+
+/* Visual Keyboard Active Highlight */
+.btn.keyboard-active {
+  transform: scale(0.95);
+  box-shadow: 0 0 0 3px var(--key-highlight-ring) !important;
+  filter: brightness(0.92);
+  z-index: 3;
+}
+
+/* Button Variants */
+.btn-number {
+  background: var(--btn-num-bg);
+  color: var(--btn-num-color);
+  border-color: var(--btn-num-border);
+}
+
+.btn-number:hover {
+  background: var(--btn-num-hover);
+}
+
+.btn-zero {
+  grid-column: span 2;
+}
+
+.btn-function {
+  background: var(--btn-fn-bg);
+  color: var(--btn-fn-color);
+  border-color: var(--btn-fn-border);
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.btn-function:hover {
+  background: var(--btn-fn-hover);
+}
+
+.btn-danger {
+  background: var(--btn-danger-bg);
+  color: var(--btn-danger-color);
+  border-color: var(--btn-danger-border);
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.btn-danger:hover {
+  background: var(--btn-danger-hover);
+}
+
+.btn-operator {
+  background: var(--btn-op-bg);
+  color: var(--btn-op-color);
+  border-color: var(--btn-op-border);
+  font-size: 1.35rem;
+}
+
+.btn-operator:hover {
+  background: var(--btn-op-hover);
+}
+
+.btn-operator.active-operator {
+  border-color: var(--btn-op-color);
+  box-shadow: 0 0 0 2px var(--btn-op-color) inset;
+}
+
+.btn-equals {
+  background: var(--btn-eq-bg);
+  color: var(--btn-eq-color);
+  border-color: var(--btn-eq-border);
+  box-shadow: var(--btn-eq-shadow);
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.btn-equals:hover {
+  background: var(--btn-eq-hover);
+  box-shadow: 0 6px 18px 0 rgba(15, 118, 110, 0.45);
+}
+
+.btn-equals:active {
+  background: var(--btn-eq-active);
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.app-footer {
+  text-align: center;
+  padding: 4px 8px;
+}
+
+.app-footer p {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  letter-spacing: 0.02em;
+}
+
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+@media (max-width: 420px) {
+  body {
+    padding: 12px 10px;
+  }
+
+  .app-container {
+    max-width: 100%;
+    gap: 12px;
+  }
+
+  .calculator-card {
+    padding: 16px 14px;
+    border-radius: 24px;
+    gap: 14px;
+  }
+
+  .display-container {
+    padding: 14px 16px;
+    min-height: 94px;
+    border-radius: 16px;
+  }
+
+  .result-display {
+    font-size: 2.15rem;
+  }
+
+  .result-display.text-medium {
+    font-size: 1.75rem;
+  }
+
+  .result-display.text-small {
+    font-size: 1.35rem;
+  }
+
+  .result-display.text-xsmall {
+    font-size: 1.15rem;
+  }
+
+  .keypad-grid {
+    gap: 10px;
+  }
+
+  .btn {
+    height: 54px;
+    font-size: 1.2rem;
+    border-radius: 14px;
+  }
+
+  .btn-function, .btn-danger {
+    font-size: 1.05rem;
+  }
+}
+
+@media (max-width: 340px) {
+  .btn {
+    height: 48px;
+    font-size: 1.1rem;
+    border-radius: 12px;
+  }
+
+  .keypad-grid {
+    gap: 8px;
+  }
+}

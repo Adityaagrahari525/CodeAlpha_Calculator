@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A modern, minimal glassmorphism calculator built with HTML5, CSS3, and Vanilla JavaScript. Fast, accessible, and responsive.">
+  <title>Calculator — Simple • Fast • Accurate</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header with Branding and Theme Toggle -->
+    <header class="app-header">
+      <div class="brand">
+        <div class="brand-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="4" y="2" width="16" height="20" rx="4"></rect>
+            <line x1="8" y1="6" x2="16" y2="6"></line>
+            <line x1="16" y1="14" x2="16" y2="18"></line>
+            <path d="M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M8 18h.01M12 18h.01"></path>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <h1 class="brand-title">Calculator</h1>
+          <p class="brand-subtitle">Simple • Fast • Accurate</p>
+        </div>
+      </div>
+      
+      <!-- Theme Switcher -->
+      <button id="theme-toggle" class="theme-toggle-btn" type="button" aria-label="Toggle dark mode" title="Toggle Theme (T)">
+        <svg class="sun-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+      </button>
+    </header>
+
+    <!-- Main Calculator Component -->
+    <main>
+      <section class="calculator-card" aria-label="Calculator">
+        <!-- Display Section -->
+        <div class="display-container" role="region" aria-label="Calculator Screen">
+          <div id="expression-display" class="expression-display" aria-live="polite" aria-atomic="true"></div>
+          <div id="result-display" class="result-display" role="status" aria-live="assertive" aria-atomic="true">0</div>
+        </div>
+
+        <!-- Buttons Grid -->
+        <div class="keypad-grid" role="group" aria-label="Calculator keypad">
+          <!-- Row 1 -->
+          <button type="button" class="btn btn-danger" data-action="clear" data-key="Escape" aria-label="All Clear">AC</button>
+          <button type="button" class="btn btn-function" data-action="delete" data-key="Backspace" aria-label="Delete last digit">DEL</button>
+          <button type="button" class="btn btn-operator" data-action="percent" data-key="%" aria-label="Percentage">%</button>
+          <button type="button" class="btn btn-operator" data-action="operator" data-value="÷" data-key="/" aria-label="Divide">÷</button>
+
+          <!-- Row 2 -->
+          <button type="button" class="btn btn-number" data-action="number" data-value="7" data-key="7" aria-label="7">7</button>
+          <button type="button" class="btn btn-number" data-action="number" data-value="8" data-key="8" aria-label="8">8</button>
+          <button type="button" class="btn btn-number" data-action="number" data-value="9" data-key="9" aria-label="9">9</button>
+          <button type="button" class="btn btn-operator" data-action="operator" data-value="×" data-key="*" aria-label="Multiply">×</button>
+
+          <!-- Row 3 -->
+          <button type="button" class="btn btn-number" data-action="number" data-value="4" data-key="4" aria-label="4">4</button>
+          <button type="button" class="btn btn-number" data-action="number" data-value="5" data-key="5" aria-label="5">5</button>
+          <button type="button" class="btn btn-number" data-action="number" data-value="6" data-key="6" aria-label="6">6</button>
+          <button type="button" class="btn btn-operator" data-action="operator" data-value="−" data-key="-" aria-label="Subtract">−</button>
+
+          <!-- Row 4 -->
+          <button type="button" class="btn btn-number" data-action="number" data-value="1" data-key="1" aria-label="1">1</button>
+          <button type="button" class="btn btn-number" data-action="number" data-value="2" data-key="2" aria-label="2">2</button>
+          <button type="button" class="btn btn-number" data-action="number" data-value="3" data-key="3" aria-label="3">3</button>
+          <button type="button" class="btn btn-operator" data-action="operator" data-value="+" data-key="+" aria-label="Add">+</button>
+
+          <!-- Row 5 -->
+          <button type="button" class="btn btn-number btn-zero" data-action="number" data-value="0" data-key="0" aria-label="0">0</button>
+          <button type="button" class="btn btn-number" data-action="decimal" data-value="." data-key="." aria-label="Decimal point">.</button>
+          <button type="button" class="btn btn-equals" data-action="equals" data-key="Enter" aria-label="Calculate equals">=</button>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+      <p>Built with HTML • CSS • JavaScript</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
